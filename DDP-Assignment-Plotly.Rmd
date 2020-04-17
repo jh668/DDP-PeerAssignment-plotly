@@ -1,0 +1,21 @@
+---
+title: "Developing Data Products Assignment: Plotly"
+author: "jh"
+date: "4/16/2020"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## WTI Crude Oil Price History
+```{r}
+library(knitr)
+library(plotly)
+wti <- read.csv(url("https://datahub.io/core/oil-prices/r/wti-week.csv"),header=TRUE)
+wti$Date <- as.Date(wti$Date)
+plot_ly(x=wti$Date, y=wti$Price, mode="lines")
+```
